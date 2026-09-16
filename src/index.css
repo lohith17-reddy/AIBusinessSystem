@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+/* Offset anchored sections below sticky navbar */
+section[id] {
+  scroll-margin-top: 76px;
+}
+
+/* Subtle custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a1633;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0ea5e9, #22d3ee);
+  border-radius: 8px;
+}
+
+/* Focus visibility for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
+
+/* Glass utility */
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/15;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-soft transition-all duration-200 hover:shadow-glow hover:-translate-y-0.5 focus-visible:outline-cyan-300 active:translate-y-0;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-navy-800 hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest;
+  }
+}
